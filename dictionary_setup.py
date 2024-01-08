@@ -5,9 +5,7 @@ be running in the near future. The project will use the database to keep track o
 
 Not only will this project prove useful for learning things like SQLite and Pandas, but it will also be fun for my
 players (and myself) to look at data.
-"""
-
-"""
+~~~~~~~~~~~
 TO-DO LIST
 ~~~~~~~~~~~
 Create the database and several tables, including
@@ -22,37 +20,43 @@ critical_failure (INTEGER [0 for true, 1 for false])
 """
 connect = sqlite3.connect('TTRPG_rolls.db')
 cursor = connect.cursor()
-
+connect.execute("PRAGMA foreign_keys = ON")
 # ~~~~~~~~
 # CREATING THE TABLES
 
 # THE PLAYERS TABLE
 # cursor.execute("""CREATE TABLE players (
-# player_id INTEGER,
+# player_id INTEGER PRIMARY KEY,
 # name TEXT,
 # ancestry TEXT,
 # class TEXT)
 # """
 # )
-#
-# # THE GAMES TABLE
+
+# THE GAMES TABLE
 # cursor.execute("""CREATE TABLE games (
-# game_number INTEGER,
+# game_number INTEGER PRIMARY KEY,
 # date TEXT,
 # players_present INTEGER)
 # """
 # )
-#
-# # THE ROLLS TABLE
+
+# THE ROLLS TABLE
 # cursor.execute("""CREATE TABLE rolls (
 # game_number INTEGER,
-# player_id INTEGER,
+# player_id INTEGER
 # type TEXT,
 # difficulty INTEGER,
 # modifiers INTEGER,
 # success INTEGER,
 # critical_success INTEGER,
-# critical_failure INTEGER)
-# """
+# critical_failure INTEGER,
+# FOREIGN KEY (player_id) REFERENCES players(player_id),
+# FOREIGN KEY (game_number) REFERENCES games(game_number)
 # )
+# """)
+
 # ~~~~~~~~
+
+connect.commit()
+connect.close()
