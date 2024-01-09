@@ -5,22 +5,14 @@ be running in the near future. The project will use the database to keep track o
 
 Not only will this project prove useful for learning things like SQLite and Pandas, but it will also be fun for my
 players (and myself) to look at data.
-~~~~~~~~~~~
-TO-DO LIST
-~~~~~~~~~~~
-Create the database and several tables, including
-
-PLAYERS - id (INTEGER), name (TEXT), ancestry (TEXT), class (TEXT)
-
-GAMES - game_number (INTEGER), date (TEXT), players_present (by id [INTEGER])
-
-ROLLS - game_number (INTEGER), player_id (INTEGER), type (TEXT), difficulty (INTEGER), modifiers (INTEGER),
-success (INTEGER [0 for true, 1 for false]), critical_success (INTEGER [0 for true, 1 for false]),
-critical_failure (INTEGER [0 for true, 1 for false])
 """
-connect = sqlite3.connect('TTRPG_rolls.db')
-cursor = connect.cursor()
-connect.execute("PRAGMA foreign_keys = ON")
+# ~~~~~~~~
+# CODE FOR GENERAL SETUP
+# ~~~~~~~~
+# connect = sqlite3.connect('TTRPG_rolls.db')
+# cursor = connect.cursor()
+# connect.execute("PRAGMA foreign_keys = ON")
+
 # ~~~~~~~~
 # CREATING THE TABLES
 
@@ -44,7 +36,7 @@ connect.execute("PRAGMA foreign_keys = ON")
 # THE ROLLS TABLE
 # cursor.execute("""CREATE TABLE rolls (
 # game_number INTEGER,
-# player_id INTEGER
+# player_id INTEGER,
 # type TEXT,
 # difficulty INTEGER,
 # modifiers INTEGER,
@@ -57,6 +49,34 @@ connect.execute("PRAGMA foreign_keys = ON")
 # """)
 
 # ~~~~~~~~
-
-connect.commit()
-connect.close()
+# FUNCTION TO ADD PLAYER DATA TO 'PLAYERS' TABLE
+def add_player(player_id=None, name=None, ancestry=None, p_class=None):
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.execute("INSERT INTO players VALUES (?, ?, ?, ?)",
+                   (player_id, name, ancestry, p_class))
+    connect.commit()
+    connect.close()
+# ~~~~~~~~
+# FUNCTION TO ADD A NEW GAME TO 'GAMES' TABLE
+def add_game(game_number=None, date=None, players_present=None):
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.execute("INSERT INTO games VALUES (?, ?, ?)",
+                   (game_number, date, players_present))
+    connect.commit()
+    connect.close()
+# ~~~~~~~~
+# FUNCTION TO ADD A NEW ROLL TO 'ROLLS' TABLE
+def add_roll(game_number=None, player_id=None, type=None, difficulty=None, modifier=None, success=None,
+             critical_success=None, critical_failure=None):
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.execute("INSERT INTO games VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                   (game_number, player_id, type, difficulty, modifier, success, critical_success,
+                    critical_failure))
+    connect.commit()
+    connect.close()
