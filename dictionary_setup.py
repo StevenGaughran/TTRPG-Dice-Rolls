@@ -1,4 +1,5 @@
 import sqlite3
+import csv
 
 """The goal of this is to create a relational database to shuffle around data for an upcoming Pathfinder 2e game I will
 be running in the near future. The project will use the database to keep track of individual dice rolls.
@@ -8,7 +9,7 @@ players (and myself) to look at data.
 """
 # ~~~~~~~~
 # CODE FOR GENERAL USE/SETUP
-# ~~~~~~~~
+
 # connect = sqlite3.connect('TTRPG_rolls.db')
 # cursor = connect.cursor()
 # connect.execute("PRAGMA foreign_keys = ON")
@@ -54,6 +55,11 @@ players (and myself) to look at data.
 # ~~~~~~~~
 # FUNCTION TO ADD PLAYER DATA TO 'PLAYERS' TABLE
 def add_player(player_id=None, p_name=None, char_name=None, ancestry=None, p_class=None):
+    """Add player data to the 'players' table in 'TTRPG_rolls.db'.
+
+    Args:
+        Each argument is column data to be added to the 'players' table in 'TTRPG_rolls.db'.
+    """
     connect = sqlite3.connect('TTRPG_rolls.db')
     cursor = connect.cursor()
     connect.execute("PRAGMA foreign_keys = ON")
@@ -65,6 +71,11 @@ def add_player(player_id=None, p_name=None, char_name=None, ancestry=None, p_cla
 # ~~~~~~~~
 # FUNCTION TO ADD A NEW GAME TO 'GAMES' TABLE
 def add_game(game_number=None, date=None, players_present=None):
+    """Add game data to the 'games' table in 'TTRPG_rolls.db'.
+
+    Args:
+        Each argument is column data to be added to the 'games' table in 'TTRPG_rolls.db'.
+    """
     connect = sqlite3.connect('TTRPG_rolls.db')
     cursor = connect.cursor()
     connect.execute("PRAGMA foreign_keys = ON")
@@ -77,6 +88,11 @@ def add_game(game_number=None, date=None, players_present=None):
 # FUNCTION TO ADD A NEW ROLL TO 'ROLLS' TABLE
 def add_roll(game_number=None, player_id=None, roll_type=None, difficulty=None, roll=None, modifier=None, success=None,
              critical_success=None, critical_failure=None):
+    """Add roll data to the 'rolls' table in 'TTRPG_rolls.db'.
+
+    Args:
+        Each argument is column data to be added to the 'rolls' table in 'TTRPG_rolls.db'.
+    """
     connect = sqlite3.connect('TTRPG_rolls.db')
     cursor = connect.cursor()
     connect.execute("PRAGMA foreign_keys = ON")
@@ -89,11 +105,34 @@ def add_roll(game_number=None, player_id=None, roll_type=None, difficulty=None, 
 # ~~~~~~~~
 # IMPORTING CSV FILE INTO THE DATABASE
 # The goal here is to do all the messy data entry in a Google Sheet and import the CSV into the database
-def csv_data_import():
-    pass
+# Should probably create a function that downloads the files directly from Google as CSV.
+def csv_data_read(file=None):
+    """Opens and reads a CSV file.
+
+    Args:
+        The CSV file you want opened and read.
+    Return:
+        Clean CSV data.
+    """
+    file = open(file)
+    contents = csv.reader(file)
+    return contents
+
+def csv_players_data_insert(csv_data=None):
+    """Inserts CSV data into the 'players' table in 'TTRPG_rolls.db'.
+
+    Args:
+        The CSV data to be inserted.
+    """
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.executemany("INSERT INTO players VALUES (?, ?, ?, ?)", csv_data)
+    connect.commit()
+    connect.close()
 
 # ~~~~~~~~
 # MORE CODE FOR GENERAL USE/SETUP
-# ~~~~~~~~
+
 # connect.commit()
 # connect.close()
