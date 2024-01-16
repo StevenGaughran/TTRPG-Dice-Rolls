@@ -153,18 +153,19 @@ def csv_data_insertion(csv_data=None, table=None):
         csv_data = The CSV data to be inserted.
         table = the 'TTRPG_rolls.db' table of your choice.
     """
-    connect = sqlite3.connect("TTRPG_rolls.db")
-    cursor = connect.cursor()
-    connect.execute("PRAGMA foreign_keys = ON")
+    connect = sqlite3.connect("TTRPG_rolls.db")     # Connect to the SQL database
+    cursor = connect.cursor()   # Create the SQL cursor
+    connect.execute("PRAGMA foreign_keys = 0")  # Allow Foreign Keys
 
-    header_row = next(csv_data, None)
-    num_columns = int(len(header_row) if header_row else 0)
+    header_row = next(csv_data, None)   #Skip the header row
+    num_columns = int(len(header_row) if header_row else 0) #Count the number of columns to be inserted, for use below.
 
+    # Add the CSV data, row-by-row
     for row in csv_data:
         cursor.execute(f"INSERT INTO {table} VALUES ({','.join(['?'] * num_columns)})", row)
 
-    connect.commit()
-    connect.close()
+    connect.commit()    # Commit the changes to the database.
+    connect.close()     # Close the database connection
 
 # ~~~~~~~~
 # INDIVIDUAL DATA INSERTION FUNCTIONS
@@ -212,5 +213,3 @@ def csv_rolls_data_insert(csv_data=None):
 
 # connect.commit()
 # connect.close()
-
-# recreate_players_table()
