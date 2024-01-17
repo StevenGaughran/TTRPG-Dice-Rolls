@@ -17,16 +17,12 @@ def pull_database_data(table=None):
     df = pd.read_sql_query(f"SELECT * FROM {table}", connect)
     return df
 
-# def averages_over_games(game_data=pull_database_data('rolls')):
-#     x = game_data['game_number']
-#     y = game_data['roll'].mean()
-#     plt.bar(x,y)
-#     plt.show()
+def total_roll_average_by_game(data=pull_database_data('rolls')):
+    average_rolls = data.groupby('game_number')['roll'].mean().reset_index()
 
-# def averages_over_games(game_data=pull_database_data('rolls')):
-#     x_axis = game_data['game_number']
-#     y_axis = game_data['roll'].mean()
-#     plt.plot(x_axis,y_axis)
-#     plt.show()
-
-# averages_over_games()
+    # Plot the results
+    plt.bar(average_rolls['game_number'], average_rolls['roll'])
+    plt.xlabel('Game Number')
+    plt.ylabel('Average Roll')
+    plt.title('Average Roll for Each Game')
+    plt.show()
