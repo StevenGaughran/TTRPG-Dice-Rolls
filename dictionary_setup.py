@@ -43,39 +43,51 @@ def recreate_players_table():
     )
 
 # THE PLAYERS TABLE
-# cursor.execute("""CREATE TABLE players (
-# player_id INTEGER PRIMARY KEY,
-# player_name TEXT,
-# character_name TEXT,
-# ancestry TEXT,
-# class TEXT)
-# """
-# )
+def create_player_table():
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.execute("""CREATE TABLE players (
+    player_id INTEGER PRIMARY KEY,
+    player_name TEXT,
+    character_name TEXT,
+    ancestry TEXT,
+    class TEXT)
+    """
+    )
 
 # THE GAMES TABLE
-# cursor.execute("""CREATE TABLE games (
-# game_number INTEGER PRIMARY KEY,
-# date TEXT,
-# players_present INTEGER)
-# """
-# )
+def create_games_table():
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.execute("""CREATE TABLE games (
+    game_number INTEGER PRIMARY KEY,
+    date TEXT,
+    players_present INTEGER)
+    """
+    )
 
 # THE ROLLS TABLE
-# cursor.execute("""CREATE TABLE rolls (
-# game_number INTEGER,
-# player_id INTEGER,
-# type TEXT,
-# difficulty INTEGER,
-# roll INTEGER,
-# modifiers INTEGER,
-# total INTEGER,
-# success INTEGER,
-# critical_success INTEGER,
-# critical_failure INTEGER,
-# FOREIGN KEY (player_id) REFERENCES players(player_id),
-# FOREIGN KEY (game_number) REFERENCES games(game_number)
-# )
-# """)
+def create_rolls_table():
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+    cursor.execute("""CREATE TABLE rolls (
+    game_number INTEGER,
+    player_id INTEGER,
+    type TEXT,
+    difficulty INTEGER,
+    roll INTEGER,
+    modifiers INTEGER,
+    total INTEGER,
+    success INTEGER,
+    critical_success INTEGER,
+    critical_failure INTEGER,
+    FOREIGN KEY (player_id) REFERENCES players(player_id),
+    FOREIGN KEY (game_number) REFERENCES games(game_number)
+    )
+    """)
 
 # ~~~~~~~~
 # FUNCTION TO ADD PLAYER DATA TO 'PLAYERS' TABLE
