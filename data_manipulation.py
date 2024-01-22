@@ -65,3 +65,41 @@ def total_roll_average_by_game(data=pull_database_data('rolls')):
     plt.ylabel('Average Roll')
     plt.title('Average Roll for Each Game')
     plt.show()
+
+def all_players_roll_line_plot(data=pull_database_data('rolls')):
+    """Creates a line plot that shows ever players' average dice roll per game.
+
+    Args:
+        The 'rolls' info from the Pandas dataframe created by 'pull_database_data()'
+
+    Return:
+        A Matplotlib line plot.
+    """
+    # Connect to the database
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    cursor = connect.cursor()
+    connect.execute("PRAGMA foreign_keys = ON")
+
+    # Find player names
+    cursor.execute("SELECT DISTINCT player_name FROM players")
+    names = []
+    all_items = cursor.fetchall()
+    for item in all_items:
+        names += item
+    connect.close()
+
+    # Grouping the data
+    # group = data.iterrows()
+    # group = data.groupby('player_id')
+
+    # for index, row in group:
+    #     plt.plot()
+
+    # for i in group():
+    #     plt.plot()
+
+    plt.xlabel('Game Number')
+    plt.ylabel('Average Roll')
+    plt.show()
+
+all_players_roll_line_plot()
