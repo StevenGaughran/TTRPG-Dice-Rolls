@@ -80,6 +80,9 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     cursor = connect.cursor()
     connect.execute("PRAGMA foreign_keys = ON")
 
+    # cursor.execute("SELECT roll FROM rolls WHERE player_id = 1 AND game_number = 2")
+    # items = cursor.fetchall()
+
     # Find player names
     cursor.execute("SELECT DISTINCT player_name FROM players")
     names = []
@@ -89,17 +92,14 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     connect.close()
 
     # Grouping the data
-    # group = data.iterrows()
-    # group = data.groupby('player_id')
+    group = data.groupby('player_id')
 
-    # for index, row in group:
-    #     plt.plot()
-
-    # for i in group():
-    #     plt.plot()
+    for i in group:
+        print(i)
 
     plt.xlabel('Game Number')
     plt.ylabel('Average Roll')
     plt.show()
 
 all_players_roll_line_plot()
+# total_roll_average_by_game()
