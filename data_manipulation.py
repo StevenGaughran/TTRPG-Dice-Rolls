@@ -84,22 +84,26 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     # items = cursor.fetchall()
 
     # Find player names
-    cursor.execute("SELECT DISTINCT player_name FROM players")
-    names = []
-    all_items = cursor.fetchall()
-    for item in all_items:
-        names += item
-    connect.close()
+    # cursor.execute("SELECT DISTINCT player_name FROM players")
+    # names = []
+    # all_items = cursor.fetchall()
+    # for item in all_items:
+    #     names += item
+    # connect.close()
 
     # Grouping the data
     group = data.groupby('player_id')
 
-    for i in group:
-        print(i)
+    # for i in group:
+    #     testsum = i.groupby['roll'].sum()
+    #     print(testsum)
 
-    plt.xlabel('Game Number')
-    plt.ylabel('Average Roll')
-    plt.show()
+    # bobby = data.loc[data['player_id']] == 1
+    # print(bobby)
+
+    # plt.xlabel('Game Number')
+    # plt.ylabel('Average Roll')
+    # plt.show()
 
 all_players_roll_line_plot()
 # total_roll_average_by_game()
