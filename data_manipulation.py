@@ -95,10 +95,10 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     fig, ax = plt.subplots(figsize=(10, 6))
     counter = 5
     for player, group_data in average_rolls.groupby('player_id'):
-        ax.plot(group_data['game_number'],
+        ax.plot(group_data['game_number'].astype('string'),
                 group_data['roll'],
                 label=f'{names.pop(0)}',
-                marker='o')
+                marker='o',)
         counter -= 1
 
     ax.set_xlabel('Game Number')
@@ -108,5 +108,5 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     plt.grid(True)
     plt.show()
 
-# all_players_roll_line_plot()
+all_players_roll_line_plot()
 # total_roll_average_by_game()
