@@ -68,7 +68,7 @@ def total_roll_average_by_game(data=pull_database_data('rolls')):
     plt.show()
 
 def all_players_roll_line_plot(data=pull_database_data('rolls')):
-    """Creates a line plot that shows ever players' average dice roll per game.
+    """Creates a line plot that shows every player's average dice roll per game.
 
     Args:
         The 'rolls' info from the Pandas dataframe created by 'pull_database_data()'
@@ -90,23 +90,23 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     connect.close()
 
     # Grouping the data
-    average_rolls = data.groupby(['game_number', 'player_id', 'roll']).mean().reset_index()
+    average_rolls = data.groupby(['game_number', 'player_id']).mean().reset_index()
 
     # Plotting the data
     fig, ax = plt.subplots(figsize=(10, 6))
-    counter = 5
+
     for player, group_data in average_rolls.groupby('player_id'):
         ax.plot(group_data['game_number'].astype('string'),
                 group_data['roll'],
                 label=f'{names.pop(0)}',
-                marker='o',)
-        counter -= 1
+                marker='o', )
 
     ax.set_xlabel('Game Number')
     ax.set_ylabel('Average Roll')
     ax.set_title('Average Rolls by Game Number')
     ax.legend()
     plt.grid(True)
+    plt.yticks(np.arange(1, 21, 1))
     plt.show()
 
 # total_roll_average_by_game()
