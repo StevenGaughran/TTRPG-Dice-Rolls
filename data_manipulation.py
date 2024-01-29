@@ -60,7 +60,8 @@ def total_roll_average_by_game(data=pull_database_data('rolls')):
     average_rolls = data.groupby('game_number')['roll'].mean().reset_index()
 
     # Plot the results
-    plt.bar(average_rolls['game_number'], average_rolls['roll'])
+    plt.bar(average_rolls['game_number'].astype('str'),
+            average_rolls['roll'])
     plt.xlabel('Game Number')
     plt.ylabel('Average Roll')
     plt.title('Average Roll for Each Game')
@@ -108,5 +109,6 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     plt.grid(True)
     plt.show()
 
-all_players_roll_line_plot()
 # total_roll_average_by_game()
+# average_rolls_by_player()
+# all_players_roll_line_plot()
