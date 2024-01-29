@@ -111,4 +111,4 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
 
 # total_roll_average_by_game()
 # average_rolls_by_player()
-# all_players_roll_line_plot()
+all_players_roll_line_plot()
