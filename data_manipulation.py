@@ -80,30 +80,33 @@ def all_players_roll_line_plot(data=pull_database_data('rolls')):
     cursor = connect.cursor()
     connect.execute("PRAGMA foreign_keys = ON")
 
-    # cursor.execute("SELECT roll FROM rolls WHERE player_id = 1 AND game_number = 2")
-    # items = cursor.fetchall()
-
     # Find player names
-    # cursor.execute("SELECT DISTINCT player_name FROM players")
-    # names = []
-    # all_items = cursor.fetchall()
-    # for item in all_items:
-    #     names += item
-    # connect.close()
+    cursor.execute("SELECT DISTINCT player_name FROM players")
+    names = []
+    all_items = cursor.fetchall()
+    for item in all_items:
+        names += item
+    connect.close()
 
     # Grouping the data
-    group = data.groupby('player_id')
+    average_rolls = data.groupby(['game_number', 'player_id', 'roll']).mean().reset_index()
 
-    # for i in group:
-    #     testsum = i.groupby['roll'].sum()
-    #     print(testsum)
+    # Plotting the data
+    fig, ax = plt.subplots(figsize=(10, 6))
+    counter = 5
+    for player, group_data in average_rolls.groupby('player_id'):
+        ax.plot(group_data['game_number'],
+                group_data['roll'],
+                label=f'{names.pop(0)}',
+                marker='o')
+        counter -= 1
 
-    # bobby = data.loc[data['player_id']] == 1
-    # print(bobby)
+    ax.set_xlabel('Game Number')
+    ax.set_ylabel('Average Roll')
+    ax.set_title('Average Rolls by Game Number')
+    ax.legend()
+    plt.grid(True)
+    plt.show()
 
-    # plt.xlabel('Game Number')
-    # plt.ylabel('Average Roll')
-    # plt.show()
-
-all_players_roll_line_plot()
+# all_players_roll_line_plot()
 # total_roll_average_by_game()
