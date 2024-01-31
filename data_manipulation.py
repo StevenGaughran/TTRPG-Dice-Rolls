@@ -61,7 +61,10 @@ class DataManagement:
         Return:
             A Matplotlib barchart.
         """
+        # Pull the data
         data = self.pull_database_data('rolls')
+
+        # Group the data
         average_rolls = data.groupby('game_number')['roll'].mean().reset_index()
 
         # Plot the results
@@ -98,6 +101,7 @@ class DataManagement:
 
         # Grouping the data
         average_rolls = data.groupby(['game_number', 'player_id']).mean().reset_index()
+        group_average = data.groupby('game_number')['roll'].mean().reset_index()
 
         # Plotting the data
         fig, ax = plt.subplots(figsize=(10, 6))
@@ -106,7 +110,13 @@ class DataManagement:
             ax.plot(group_data['game_number'].astype('string'),
                     group_data['roll'],
                     label=f'{names.pop(0)}',
-                    marker='o', )
+                    marker='o')
+
+        ax.plot(group_average['game_number'].astype('string'),
+                group_average['roll'],
+                label = 'Group Average',
+                linestyle='--',
+                marker='x')
 
         ax.set_xlabel('Game Number')
         ax.set_ylabel('Average Roll')
