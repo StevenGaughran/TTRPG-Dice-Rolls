@@ -229,5 +229,23 @@ def csv_rolls_data_insert(csv_data=None):
 # ~~~~~~
 # I need to create a series of functions that import all this dumb stuff at once
 # ~~~~~~
-# create_games_table()
-# csv_data_insertion(csv_data=csv_data_read("csv_files/Sommerset Game Data - Game_Details.csv"),table='games')
+
+def the_big_upload():
+    connect = sqlite3.connect('TTRPG_rolls.db')
+    # connect.execute("PRAGMA foreign_keys = ON")
+
+    connect.execute("""DROP TABLE players""")
+    connect.execute("""DROP TABLE games""")
+    connect.execute("""DROP TABLE rolls""")
+
+    create_games_table()
+    create_player_table()
+    create_rolls_table()
+
+    csv_data_insertion(csv_data=csv_data_read("csv_files/Sommerset Game Data - Game_Details.csv"), table="games")
+    csv_data_insertion(csv_data=csv_data_read("csv_files/Sommerset Game Data - Players.csv"), table="players")
+    csv_data_insertion(csv_data=csv_data_read("csv_files/Sommerset Game Data - Rolls.csv"), table="rolls")
+
+    connect.commit()
+    connect.close()
+

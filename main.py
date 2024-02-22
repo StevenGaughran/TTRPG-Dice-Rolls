@@ -6,7 +6,7 @@ import data_manipulation as dm
 # ~~~~~~~
 dataman = dm.DataManagement()
 
-# dataman.all_players_roll_line_plot()
+dataman.all_players_roll_line_plot()
 # dataman.average_rolls_by_player()
 # dataman.total_roll_average_by_game()
 
