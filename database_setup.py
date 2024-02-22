@@ -225,3 +225,9 @@ def csv_rolls_data_insert(csv_data=None):
 
 # connect.commit()
 # connect.close()
+
+# ~~~~~~
+# I need to create a series of functions that import all this dumb stuff at once
+# ~~~~~~
+# create_games_table()
+# csv_data_insertion(csv_data=csv_data_read("csv_files/Sommerset Game Data - Game_Details.csv"),table='games')

@@ -21,6 +21,9 @@ class DataManagement:
         return df
 
     def average_rolls_by_player(self):
+        # ~~~~~~~~~~~
+        # ERROR! NAMES OF PLAYERS AREN'T ENTERING PROPERLY!
+        # ~~~~~~~~~~~
         """Creates a barchart of every player's average roll over the entire timeline.
 
         Args:
@@ -53,6 +56,7 @@ class DataManagement:
         plt.show()
 
     def total_roll_average_by_game(self):
+
         """Creates a barchart of the players' rolling average.
 
         Args:
@@ -76,6 +80,9 @@ class DataManagement:
         plt.show()
 
     def all_players_roll_line_plot(self):
+        # ~~~~~~~~~~~
+        # ERROR! NAMES OF PLAYERS AREN'T ENTERING PROPERLY!
+        # ~~~~~~~~~~~
         """Creates a line plot that shows every player's average dice roll per game.
 
         Args:
