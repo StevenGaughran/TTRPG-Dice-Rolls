@@ -80,9 +80,6 @@ class DataManagement:
         plt.show()
 
     def all_players_roll_line_plot(self):
-        # ~~~~~~~~~~~
-        # ERROR! NAMES OF PLAYERS AREN'T ENTERING PROPERLY!
-        # ~~~~~~~~~~~
         """Creates a line plot that shows every player's average dice roll per game.
 
         Args:
