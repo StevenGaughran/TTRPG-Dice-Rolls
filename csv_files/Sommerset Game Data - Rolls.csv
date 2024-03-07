@@ -30,3 +30,26 @@ Game_Number,Player_ID,Type,Difficulty,Roll,Modifiers,Total,Success,Critical_Succ
 2,1,Ranged Attack,13,2,6,8,1,1,1
 2,1,Ranged Attack,13,8,6,14,0,1,1
 2,1,Skill Check (Acrobatics),13,8,5,13,0,1,1
+3,2,Skill Check (Deception),13,6,7,13,0,1,1
+3,5,Fortitude Save,14,19,5,24,0,0,1
+3,1,Fortitude Save,14,17,7,24,0,0,1
+3,6,Skill Check (Society),15,5,4,9,1,1,1
+3,5,Skill Check (Medicine),15,10,3,13,1,1,1
+3,3,Skill Check (Diplomacy),11,14,4,18,0,1,1
+3,3,Skill Check (Thievery),15,12,5,17,0,1,1
+3,3,Spell Attack,12,9,7,16,0,1,1
+3,3,Ranged Attack,12,11,5,16,0,1,1
+3,6,Spell Attack,12,19,7,26,0,0,1
+3,5,Ranged Attack,12,17,3,20,0,1,1
+3,4,Spell Attack,12,1,7,8,1,1,0
+3,1,Ranged Attack,12,19,6,25,0,0,1
+3,1,Ranged Attack,12,19,1,20,0,1,1
+3,5,Escape,16,7,4,11,1,1,1
+3,5,Flat Check,5,4,0,4,1,1,1
+3,1,Ranged Attack,13,11,6,17,0,1,1
+3,4,Spell Attack,13,19,7,26,0,0,1
+3,1,Melee Attack,12,5,7,12,0,1,1
+3,3,Ranged Attack,12,3,5,8,1,1,1
+3,6,Spell Attack,11,14,7,21,0,0,1
+3,5,Skill Check (Aid),20,4,7,11,1,1,1
+3,6,Skill Check (Religion),20,19,7,26,0,1,1
