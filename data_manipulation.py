@@ -123,8 +123,8 @@ class DataManagement:
                 marker='x')
 
         ax.set_xlabel('Game Number')
-        ax.set_ylabel('Average Roll')
-        ax.set_title('Average Rolls by Game Number')
+        ax.set_ylabel('Average d20 Roll')
+        ax.set_title('Average d20 Rolls by Game Number')
         ax.legend()
         plt.grid(True)
         plt.yticks(np.arange(1, 21, 1))
