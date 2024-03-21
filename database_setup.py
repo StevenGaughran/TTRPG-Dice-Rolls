@@ -81,6 +81,7 @@ def create_rolls_table():
     roll INTEGER,
     modifiers INTEGER,
     total INTEGER,
+    hero point INTEGER,
     success INTEGER,
     critical_success INTEGER,
     critical_failure INTEGER,
