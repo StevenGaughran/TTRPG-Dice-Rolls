@@ -121,3 +121,65 @@ Game_Number,Player_ID,Type,Difficulty,Roll,Modifiers,Total,Hero Point,Success,Cr
 5,6,Skill Check (Religion),11,6,7,13,1,0,1,1
 5,4,Flat Check,11,16,0,16,1,0,1,1
 5,4,Spell Attack,15,20,8,28,1,0,0,1
+6,3,Ranged Attack,19,4,2,6,1,1,1,0
+6,3,Ranged Attack,19,14,2,16,0,1,1,1
+6,2,Ranged Attack,15,2,7,9,1,1,1,1
+6,2,Ranged Attack,15,1,7,8,0,1,1,0
+6,6,Spell Attack,15,3,8,11,1,1,1,1
+6,6,Spell Attack,15,16,8,24,0,0,1,1
+6,4,Spell Attack,15,2,8,10,1,1,1,1
+6,4,Spell Attack,15,1,8,9,0,1,1,1
+6,3,Spell Attack,15,19,8,27,1,0,0,1
+6,7,Melee Attack,15,3,6,9,1,1,1,1
+6,7,Melee Attack,15,18,7,25,0,0,1,1
+6,7,Fortitude Save,19,10,6,16,1,1,1,1
+6,6,Spell Attack,15,16,8,24,1,0,1,1
+6,4,Spell Attack,15,19,8,27,1,0,0,1
+6,1,Ranged Attack,19,4,8,12,1,1,1,1
+6,1,Ranged Attack,19,15,8,23,1,0,1,1
+6,7,Fortitude Save,19,10,6,16,1,1,1,1
+6,4,Flat Check,5,2,0,2,1,1,1,1
+6,4,Spell Attack,15,8,8,16,1,0,1,1
+6,1,Fortitude Save,19,17,8,25,1,0,1,1
+6,7,Flat Check,12,6,0,6,1,1,1,1
+6,7,Fortitude Save,19,1,6,7,1,1,1,0
+6,7,Fortitude Save,19,9,6,15,0,1,1,1
+6,3,Ranged Attack,19,17,3,20,1,0,1,1
+7,1,Skill Check (Crafting),15,20,8,28,1,0,0,1
+8,5,Skill Check (Survival),10,7,4,11,1,0,1,1
+8,5,Skill Check (Athletics),15,4,0,4,1,1,1,0
+8,4,Skill Check (Athletics),15,20,5,25,1,0,1,1
+8,3,Skill Check (Perception),15,16,5,21,1,0,1,1
+8,1,Skill Check (Stealth),15,19,6,25,1,0,1,1
+8,6,Skill Check (Stealth),15,5,1,6,1,1,1,1
+8,2,Skill Check (Stealth),15,3,7,10,1,1,1,1
+8,3,Skill Check (Perception),15,18,5,23,1,0,1,1
+8,6,Fortitude Save,14,3,4,7,1,1,1,1
+8,6,Fortitude Save,14,11,4,15,0,0,1,1
+8,1,Melee Attack,15,10,7,17,1,0,1,1
+8,1,Melee Attack,15,14,3,17,1,0,1,1
+8,3,Spell Attack,15,4,8,12,1,1,1,1
+8,6,Spell Attack,15,8,8,16,1,0,1,1
+8,2,Melee Attack,15,6,8,14,1,1,1,1
+8,2,Melee Attack,15,13,8,21,0,0,1,1
+8,5,Melee Attack,15,20,4,24,1,0,1,1
+8,2,Ranged Attack,15,17,7,24,1,0,1,1
+8,5,Melee Attack,15,3,4,7,1,1,1,1
+8,5,Melee Attack,15,14,-1,13,0,1,1,1
+8,1,Ranged Attack,16,20,7,27,1,0,0,1
+8,4,Melee Attack,16,20,5,25,1,0,1,1
+8,3,Spell Attack,16,15,8,23,1,0,1,1
+8,6,Spell Attack,16,2,8,10,1,1,1,1
+8,2,Spell Attack,16,9,7,16,1,0,1,1
+8,1,Ranged Attack,16,8,7,15,1,1,1,1
+8,4,Spell Attack,16,11,5,16,1,0,1,1
+8,6,Melee Attack,16,20,5,25,1,0,1,1
+8,5,Melee Attack,16,9,5,14,1,1,1,1
+8,5,Melee Attack,16,20,5,25,0,0,1,1
+8,1,Ranged Attack,16,5,7,12,1,1,1,1
+8,1,Ranged Attack,16,18,7,25,0,0,1,1
+8,4,Spell Attack,16,10,8,18,1,0,1,1
+8,3,Spell Attack,16,7,8,15,1,1,1,1
+8,1,Skill Check (Occultism),20,18,8,26,1,0,1,1
+8,1,Ranged Attack,16,7,7,14,1,1,1,1
+8,1,Ranged Attack,16,10,7,17,0,0,1,1
