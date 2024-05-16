@@ -198,3 +198,26 @@ Game_Number,Player_ID,Type,Difficulty,Roll,Modifiers,Total,Hero Point,Success,Cr
 9,4,Flat Check,4,7,0,7,0,0,1,1
 9,6,Skill Check (Medicine),15,12,9,21,1,0,1,1
 9,7,Skill Check (Society),11,12,9,21,0,0,1,1
+10,6,Skill Check (Perception),18,19,9,28,0,0,0,1
+10,7,Skill Check (Stealth),18,8,5,13,1,1,1,1
+10,6,Skill Check (Perception),18,9,9,18,1,0,1,1
+10,3,Ranged Attack,19,8,8,16,1,1,1,1
+10,3,Ranged Attack,19,10,8,18,0,1,1,1
+10,4,Flat Check,4,2,0,2,1,1,1,1
+10,4,Spell Attack,19,8,9,17,0,1,1,1
+10,1,Ranged Attack,19,3,8,11,0,1,1,1
+10,1,Ranged Attack,19,5,8,13,1,1,1,1
+10,7,Skill Check (Athletics),13,6,7,13,0,0,1,1
+10,3,Melee Attack,19,14,8,22,1,0,1,1
+10,4,Flat Check,4,6,0,6,1,0,1,1
+10,6,Skill Check (Society),17,18,8,26,1,0,1,1
+10,3,Spell Attack,19,16,9,25,1,0,1,1
+10,4,Melee Attack,14,4,4,8,1,1,1,1
+10,4,Melee Attack,14,8,4,12,0,1,1,1
+10,2,Spell Attack,14,20,8,28,1,0,0,1
+10,1,Skill Check (Nature),18,13,5,18,1,0,1,1
+10,7,Ranged Attack,21,9,5,14,1,1,1,1
+10,6,Spell Attack,14,17,9,26,1,0,0,1
+10,6,Skill Check (Society),13,11,8,19,0,0,1,1
+10,3,Skill Check (Intimidation),14,20,4,24,1,0,1,1
+10,7,Skill Check (Perception),18,18,7,25,1,0,1,1
